@@ -27,25 +27,25 @@ export function Footer() {
             <h3 className="font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2 text-sm text-black  ">
               <li>
-                <Link href="/" className="text-muted-foreground text-black transition-colors hover:text-primary">
+                <Link href="/" className="text-muted-foreground transition-colors hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="text-muted-foreground text-black  transition-colors hover:text-primary">
+                <Link href="/portfolio" className="text-muted-foreground  transition-colors hover:text-primary">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground text-black transition-colors hover:text-primary">
+                <Link href="/contact" className="text-muted-foreground transition-colors hover:text-primary">
                   Contact
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link href="/admin" className="text-muted-foreground transition-colors hover:text-primary">
                   Admin
                 </Link>
-              </li> */}
+              </li> 
             </ul>
           </div>
 
@@ -57,8 +57,8 @@ export function Footer() {
                 href="mailto:contact@purpleswans.design"
                 className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
               >
-                <Mail className="h-4 w-4 text-black " />
-                <span className="text-black">contact@purpleswans.design</span>
+                <Mail className="h-4 w-4 " />
+                <span>contact@purpleswans.design</span>
               </a>
               <a
                 href="https://wa.me/1234567890"
@@ -66,8 +66,8 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
               >
-                <MessageCircle className="h-4 w-4 text-black" />
-                <span className="text-black">WhatsApp</span>
+                <MessageCircle className="h-4 w-4" />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
