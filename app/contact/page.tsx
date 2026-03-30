@@ -64,15 +64,22 @@ export default function ContactPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Header Section */}
-        <section className="border-b border-border bg-secondary/30 px-4 py-12 sm:py-16 lg:px-8 bg-gradient-to-br from-[#702c8a] via-[#5a1e7a] to-[#3a0e5a]">
-          <div className="mx-auto max-w-4xl ">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Get in Touch
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Have a project in mind? We'd love to hear from you. Reach out and let's create something amazing together.
-            </p>
+      
+         {/* Header Section with Beams Background */}
+        <section className="relative overflow-hidden bg-[#4a1f5f] px-4 py-20 sm:py-28 lg:px-8 min-h-[30vh] flex items-center  animate-slideUp">
+
+          {/* Dark overlay to improve contrast and readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#702c8a]/80 to-[#4a1f5f]/90  z-[-1]" />
+
+          <div className="mx-auto max-w-7xl relative z-10">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-white">
+                Get in Touch
+              </h1>
+              <p className="mt-6 text-xl text-zinc-300 max-w-2xl">
+               Have a project in mind? We'd love to hear from you. Reach out and let's create something amazing together.
+              </p>
+            </div>
           </div>
         </section>
 
