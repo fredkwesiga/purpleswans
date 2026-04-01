@@ -29,27 +29,37 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       alert('Please fill in all fields')
       return
     }
 
     setLoading(true)
-    
+
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to send message')
+      }
+
       addContactSubmission({
         name: formData.name,
         email: formData.email,
         message: formData.message,
       })
-      
+
       setSubmitted(true)
       setFormData({ name: '', email: '', message: '' })
-      
+
       setTimeout(() => setSubmitted(false), 5000)
     } catch (error) {
       console.error('Error submitting form:', error)
@@ -64,8 +74,8 @@ export default function ContactPage() {
       <Header />
 
       <main className="flex-1">
-      
-         {/* Header Section with Beams Background */}
+
+        {/* Header Section with Beams Background */}
         <section className="relative overflow-hidden bg-[#4a1f5f] px-4 py-20 sm:py-28 lg:px-8 min-h-[30vh] flex items-center  animate-slideUp">
 
           {/* Dark overlay to improve contrast and readability */}
@@ -77,7 +87,7 @@ export default function ContactPage() {
                 Get in Touch
               </h1>
               <p className="mt-6 text-xl text-zinc-300 max-w-2xl">
-               Have a project in mind? We'd love to hear from you. Reach out and let's create something amazing together.
+                Have a project in mind? We'd love to hear from you. Reach out and let's create something amazing together.
               </p>
             </div>
           </div>
@@ -90,7 +100,7 @@ export default function ContactPage() {
               {/* Contact Form */}
               <div>
                 <h2 className="text-2xl font-bold mb-8">Send us a Message</h2>
-                
+
                 {submitted ? (
                   <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-center">
                     <Check className="h-12 w-12 text-green-600 mx-auto mb-4" />
@@ -160,7 +170,7 @@ export default function ContactPage() {
               {/* Contact Information */}
               <div>
                 <h2 className="text-2xl font-bold mb-8">Contact Information</h2>
-                
+
                 <div className="space-y-6">
                   {/* Email Card */}
                   <Card className="p-6">
@@ -235,7 +245,7 @@ export default function ContactPage() {
                         <span className="h-2 w-2 rounded-full bg-primary" />
                         Packaging Design (PER SKU)
                       </li>
-                      
+
                     </ul>
                   </Card>
                 </div>
@@ -250,7 +260,7 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold tracking-tight mb-8">
               Frequently Asked Questions
             </h2>
-            
+
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <h3 className="font-semibold mb-2">How long does a project typically take?</h3>
@@ -258,21 +268,21 @@ export default function ContactPage() {
                   Project timelines vary depending on complexity and scope. Simple designs may take 1-2 weeks, while larger projects can take 4-8 weeks. We'll provide a detailed timeline during our initial consultation.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold mb-2">What is your revision policy?</h3>
                 <p className="text-sm text-muted-foreground">
                   We include unlimited revisions until you're completely satisfied with the final design. Your satisfaction is our top priority.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold mb-2">Do you offer rush services?</h3>
                 <p className="text-sm text-muted-foreground">
                   Yes! We offer expedited services for projects with tight deadlines. Please contact us directly to discuss your timeline and pricing.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold mb-2">What are your payment terms?</h3>
                 <p className="text-sm text-muted-foreground">
